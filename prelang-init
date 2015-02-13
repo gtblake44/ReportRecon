@@ -187,25 +187,25 @@ _git_commit_all_with_message "Executed 'rake db:migrate' (development and test) 
 
 # Clean up
 # --------
-#_prompt "Would you like to keep this script (./prelang-init) in your repository? This will allow you to run it later if you need to reinitialize your Rails project."
+_prompt "Would you like to keep this script (./prelang-init) in your repository? This will allow you to run it later if you need to reinitialize your Rails project."
 
-#if [[ $? != 0 ]] ; then
-  #_topic "Removing 'prelang-init' script"
+if [[ $? != 0 ]] ; then
+  _topic "Removing 'prelang-init' script"
 
-  #if ( ! test -f ./prelang-init ) ; then
-    #_fatal_error "'./prelang-init' does not exist."
-  #fi
+  if ( ! test -f ./prelang-init ) ; then
+    _fatal_error "'./prelang-init' does not exist."
+  fi
     
-  #_execute_sucessfully_or_exit git rm ./prelang-init
-  #_git_commit_all_with_message "Removed 'prelang-init' script after successful execution"
-#fi
+  _execute_sucessfully_or_exit git rm ./prelang-init
+  _git_commit_all_with_message "Removed 'prelang-init' script after successful execution"
+fi
 
 # Push
 # ----
-#if ( ! $_skip_git_push ) ; then
-  #_topic "Pushing git repository changes back to origin"
-  #_git_push
-#fi
+if ( ! $_skip_git_push ) ; then
+  _topic "Pushing git repository changes back to origin"
+  _git_push
+fi
 
 # Rails Server
 # ------------
