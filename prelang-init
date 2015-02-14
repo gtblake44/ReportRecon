@@ -167,9 +167,9 @@ _require_command "rake"
 
 # If application is PostgreSQL, check/require server to be running before
 # database creation.
-if ( `_database_is_postgresql` && ! `_postgres_is_running` ) ; then
-  _fatal_error "PostgreSQL server is not running.  Cannot create databases."
-fi
+#if ( `_database_is_postgresql` && ! `_postgres_is_running` ) ; then
+ # _fatal_error "PostgreSQL server is not running.  Cannot create databases."
+#fi
 
 # Run "rake db:create"
 # --------------------
