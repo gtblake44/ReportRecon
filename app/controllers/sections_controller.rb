@@ -12,9 +12,10 @@ class SectionsController < ApplicationController
   def show
   end
 
-  # GET /sections/new
+  # GET /category/sections/new
   def new
-    @section = Section.new
+    @category = Category.find(params[:id])
+    @section = @category.sections.new
   end
 
   # GET /sections/1/edit
