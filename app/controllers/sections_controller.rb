@@ -5,6 +5,7 @@ class SectionsController < ApplicationController
   # GET /sections.json
   def index
     @category = Category.find_by(:id => params[:category_id])
+    # If the index command is not called inside of the categories view, load all sections.
     if @category.nil?
       @sections = Section.all
     else
