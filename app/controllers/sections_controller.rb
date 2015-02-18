@@ -4,7 +4,13 @@ class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
   def index
-    @sections = Section.all
+    @category = Category.find_by(:id => params[:category_id])
+    # If the index command is not called inside of the categories view, load all sections.
+    if @category.nil?
+      @sections = Section.all
+    else
+      @sections = @category.sections
+    end
   end
 
   # GET /sections/1
@@ -12,9 +18,10 @@ class SectionsController < ApplicationController
   def show
   end
 
-  # GET /sections/new
+  # GET /category/sections/new
   def new
-    @section = Section.new
+    @category = Category.find(params[:id])
+    @section = @category.sections.new
   end
 
   # GET /sections/1/edit
