@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :sections
   end
 
-  # resources :sections
+  resources :sections
 
   resources :annotations
 

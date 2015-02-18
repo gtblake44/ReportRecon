@@ -4,7 +4,12 @@ class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
   def index
-    @sections = Section.all
+    @category = Category.find_by(:id => params[:category_id])
+    if @category.nil?
+      @sections = Section.all
+    else
+      @sections = @category.sections
+    end
   end
 
   # GET /sections/1
